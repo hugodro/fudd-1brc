@@ -1,0 +1,4 @@
+.stack-work/
+*~
+config.yaml
+test_*.txt

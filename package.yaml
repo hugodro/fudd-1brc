@@ -1,0 +1,86 @@
+name:                Parser
+version:             0.1.0.0
+github:              "hugodro/Parser"
+license:             BSD3
+author:              "Hugo desRosiers"
+maintainer:          "hugo.desrosiers@boardingcities.com"
+copyright:           "Boarding Cities"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            application
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/hugodro/Parser#readme>
+
+dependencies:
+  - aeson
+  - base >= 4.7 && < 5
+  - bytestring
+  - directory
+  - text
+  - time
+  - vector
+  - containers
+  - unix
+  - async
+  # For YAML (config file):
+  - yaml
+  - directory
+  - filepath
+  # For Git (version):
+  - gitrev
+  # For options:
+  - optparse-applicative
+  # For Cont(T):
+  - mtl
+
+
+default-extensions:
+- OverloadedStrings
+- DuplicateRecordFields
+- OverloadedRecordDot
+
+ghc-options:
+# - -Wall
+# - -Wunused-matches
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+#- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+- -O2
+
+library:
+  source-dirs: src
+
+executables:
+  parser:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Parser
+
+tests:
+  parser-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Parser
