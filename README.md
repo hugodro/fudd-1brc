@@ -9,8 +9,8 @@ Chris Penner's [Beating C With 80 Lines Of Haskell: Wc](https://chrispenner.ca/p
 - inlining functions, and
 - unboxing structures.  
 
-And then breaking down processing over long arrays on a per-CPU core basis.
+And you get icing on the cake by breaking down processing over long arrays on a per-CPU core basis.
 
-The **wc** utility serves as the benchmark to see how the Haskell program is doing. Happy to report that when running on both MacOS M1 cpu and Linux AMD & Intel CPUs, the Haskell program is ~4-5x slower than **wc**. Importantly it runs in constant memory space. Given it's written without any special optimization tricks but for the 4 considerations mentioned before, using standard dictionary (`Data.Map`), text streaming (`BasicString.Lazy`), and structure concatenation (`Semigroup` instancing).
+The **wc** utility serves as the benchmark to see how the Haskell program is doing. Happy to report that when running on both MacOS M1 cpu and Linux AMD & Intel CPUs, the Haskell program is ~4-5x slower than **wc**. Importantly it runs in constant memory space. Given it's written without any special optimization tricks but for the 4 considerations mentioned before, using standard dictionary (`Data.Map`), text streaming (`BasicString.Lazy`), structure concatenation (`Semigroup` instancing) and multi-threading (`forConcurrently`).
 
-The logic for the 1BRC is in `src/Parsing/SimpleA.hs`, the rest of the code in the repo is simply a generic application wrapper to manage configurations, CLI arguments, etc.
+The logic for the 1BRC is the 200 lines of `src/Parsing/SimpleA.hs`, the rest of the code in the repo is simply a generic application wrapper to manage configurations, CLI arguments, etc.
