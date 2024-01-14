@@ -212,6 +212,6 @@ explainResult !sValues = do
     !mergedValues = Prelude.foldl (\accum nm -> Mp.unionWith (<>) accum nm) Mp.empty sValues
     !result = Mp.foldlWithKey (\accum k val -> let strVal = reverse k <> ": " <> show val in if accum == "" then strVal else accum <> ", " <> strVal) "" mergedValues
     totalVal = Mp.foldl' (\accum val -> accum + val.count) 0 mergedValues
-  putStrLn $ "@[explainResult] stations: " <> result
+  -- putStrLn $ "@[explainResult] stations: " <> result
   putStrLn $ "@[explainResult] # of stations: " <> show totalVal
 
