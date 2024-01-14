@@ -2,3 +2,7 @@
 *~
 config.yaml
 test_*.txt
+*.o
+*.hi
+*.lock
+makeTestData
